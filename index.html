@@ -15,6 +15,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
         rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
     <script id="tailwind-config">
         tailwind.config = {
             darkMode: "class",
@@ -47,7 +48,6 @@
             transform: translateY(0);
         }
     </style>
-
     <style>
         .outline-text {
             -webkit-text-stroke: 1px #1152d4;
@@ -105,6 +105,92 @@
         .animate-pulse-custom {
             animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
         }
+        .perspective{
+            perspective:1200px;
+        }
+
+        .card{
+            transform-style: preserve-3d;
+            will-change: transform;
+            transition: box-shadow 0.3s ease;
+        }
+
+    </style>
+    <style>
+        .pfec-card{
+            box-shadow:
+                    0 0 60px rgba(255,255,255,0.08),
+                    0 25px 60px rgba(0,0,0,0.7);
+
+            transition: all .4s ease;
+
+            animation: floatCard 7s ease-in-out infinite;
+        }
+
+        .pfec-card:hover{
+            transform: translateY(-10px) scale(1.02);
+
+            box-shadow:
+                    0 0 90px rgba(59,130,246,0.2),
+                    0 35px 80px rgba(0,0,0,0.8);
+        }
+
+        @keyframes floatCard{
+            0%,100%{
+                transform: translateY(0px);
+            }
+            50%{
+                transform: translateY(-6px);
+            }
+        }
+
+        .chip{
+            display:flex;
+            align-items:center;
+            gap:6px;
+            padding:6px 12px;
+
+            background:rgba(255,255,255,0.05);
+            border:1px solid rgba(255,255,255,0.1);
+
+            border-radius:999px;
+
+            font-size:10px;
+            font-weight:700;
+            color:#cbd5e1;
+        }
+    </style>
+    <style>
+        #contact .form-input{
+            width:100% !important;
+            border:1px solid rgba(255,255,255,0.08) !important;
+            border-radius:12px !important;
+            padding:12px 16px !important;
+            font-size:14px !important;
+            color:white !important;
+            outline:none !important;
+            transition:all .25s ease !important;
+            background-color:#0f172a !important;
+        }
+
+        #contact .form-input::placeholder{
+            color:#94a3b8 !important;
+        }
+
+        #contact .form-input:focus{
+            border-color:#3b82f6 !important;
+            box-shadow:0 0 0 2px rgba(59,130,246,0.25);
+        }
+
+        #contact select {
+            background-color: rgba(255,255,255,0.05) !important;
+            color: white !important;
+        }
+
+        #contact select option {
+            background-color: #0f172a !important; /* dark dropdown */
+            color: white !important;
+        }
     </style>
 </head>
 
@@ -122,13 +208,15 @@
                         </a>
                         <nav class="hidden md:flex items-center gap-8">
                             <a class="text-slate-600 dark:text-slate-400 text-sm font-medium hover:text-primary transition-colors"
+                               href="#why-choose">Why Us</a>
+                            <a class="text-slate-600 dark:text-slate-400 text-sm font-medium hover:text-primary transition-colors"
+                               href="#recognition">Recognition</a>
+                            <a class="text-slate-600 dark:text-slate-400 text-sm font-medium hover:text-primary transition-colors"
                                 href="#courses">Courses</a>
                             <a class="text-slate-600 dark:text-slate-400 text-sm font-medium hover:text-primary transition-colors"
-                                href="#recognition">Recognition</a><a
-                                class="text-slate-600 dark:text-slate-400 text-sm font-medium hover:text-primary transition-colors"
-                                href="#campus">Campus</a>
+                               href="#recognition-new">Scholarship</a>
                             <a class="text-slate-600 dark:text-slate-400 text-sm font-medium hover:text-primary transition-colors"
-                                href="#why-choose">Why Us</a>
+                                href="#campus">Campus</a>
                             <a class="text-slate-600 dark:text-slate-400 text-sm font-medium hover:text-primary transition-colors"
                                 href="#contact">Contact</a>
                         </nav>
@@ -137,12 +225,10 @@
                         <div
                             class="hidden lg:flex items-center bg-slate-100 dark:bg-slate-800 rounded-full px-4 py-1.5 border border-slate-200 dark:border-slate-700">
                             <span class="material-symbols-outlined text-slate-400 text-xl">search</span>
-                            <input
-                                class="bg-transparent border-none focus:ring-0 text-sm w-48 placeholder:text-slate-400"
+                            <input class="bg-transparent border-none focus:ring-0 text-sm w-48 placeholder:text-slate-400"
                                 placeholder="Find a program..." type="text" />
                         </div>
-                        <button
-                            class="bg-primary hover:bg-primary/90 text-white px-6 py-2 rounded-full text-sm font-bold transition-all shadow-sm">
+                        <button class="bg-primary hover:bg-primary/90 text-white px-6 py-2 rounded-full text-sm font-bold transition-all shadow-sm">
                             Book Free Consultation
                         </button>
                     </div>
@@ -169,15 +255,25 @@
                                 <span class="relative flex h-2 w-2 mr-2"><span
                                         class="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500 animate-pulse-custom"></span></span>Applications
                                 for 2026 Intake Now Open</div>
-                            <h1
-                                class="text-slate-900 dark:text-white font-black tracking-tighter text-4xl md:text-6xl leading-tight">
+                            <h1 class="text-slate-900 dark:text-white font-black tracking-tighter text-4xl md:text-6xl leading-tight">
                                 <span style="color: #150C5D;">Unlock Global Opportunities Through World Class Education
-                                    at</span> <span class="text-primary">Adelaide University</span></h1>
-                            <p
-                                class="text-slate-600 dark:text-slate-400 text-lg md:text-xl font-light leading-relaxed max-w-lg">
-                                Choosing the right university can shape your entire future. Unlock global opportunities
-                                through world class education and transform your ambition into achievement at Adelaide
-                                University.</p>
+                                    at</span>
+                                <span class="text-primary">Adelaide University</span>
+                            </h1>
+                            <div class="relative p-8 rounded-2xl
+                                backdrop-blur-lg
+                                bg-white/25
+                                dark:bg-slate-900/30
+                                border border-white/20
+                                shadow-2xl max-w-lg">
+
+                                <p class="text-slate-800 dark:text-slate-200 text-lg md:text-xl font-light leading-relaxed drop-shadow-md">
+                                    Choosing the right university can shape your entire future. Unlock global opportunities
+                                    through world class education and transform your ambition into achievement at Adelaide
+                                    University.
+                                </p>
+
+                            </div>
                             <div class="flex flex-wrap gap-4 pt-4">
                                 <button
                                     class="bg-white border-2 border-primary text-primary px-8 py-4 rounded-xl font-bold hover:bg-primary/5 transition-colors flex items-center gap-2"
@@ -192,15 +288,15 @@
 
                 <!-- Stats Grid (12 Offices PFEC Style) -->
 
-                <section class="py-8 bg-white dark:bg-background-dark border-y border-slate-100 dark:border-slate-800 reveal-on-scroll" id="why-choose">
+                <section class="py-8 bg-slate-100 dark:bg-background-dark border-y border-slate-100 dark:border-slate-800 reveal-on-scroll" id="why-choose">
 
                     <div class="max-w-7xl mx-auto px-6">
 
                         <!-- Section Heading -->
                         <div class="mb-16 text-center">
-                        <span class="text-primary font-bold uppercase tracking-[0.3em] text-sm">
-                            Why Adelaide University?
-                        </span>
+                            <span class="text-primary font-bold uppercase tracking-[0.3em] text-sm">
+                                Why Adelaide University?
+                            </span>
 
                             <h2 class="font-black mt-4 tracking-tight dark:text-white text-5xl text-[#150C5D]">
                                 Excellence That Shapes the Future
@@ -213,87 +309,86 @@
                             <!-- LEFT SIDE : CARDS -->
                             <div class="lg:col-span-2">
 
-                                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 perspective">
 
                                     <!-- Academic Excellence -->
-                                    <div class="group relative overflow-hidden p-8 rounded-3xl bg-white dark:bg-slate-900
-                                        border border-slate-200 dark:border-slate-800
-                                        hover:border-primary/40
-                                        hover:bg-gradient-to-br hover:from-blue-50 hover:to-indigo-50
-                                        dark:hover:from-slate-800 dark:hover:to-slate-900
-                                        shadow-md hover:shadow-xl
-                                        transition-all duration-300 hover:-translate-y-2 text-center">
+                                    <div class="card group relative overflow-hidden p-8 rounded-3xl
+                                        backdrop-blur-xl
+                                        bg-white/30 dark:bg-slate-900/30
+                                        border border-white/40 dark:border-slate-700/40
+                                        shadow-[0_10px_40px_rgba(0,0,0,0.18)]
+                                        hover:shadow-[0_25px_60px_rgba(0,0,0,0.3)]
+                                        transition-all duration-500
+                                        text-center">
 
-                                        <!-- Top Accent Bar -->
-                                        <div class="absolute top-0 left-0 w-0 h-1
-                                    bg-gradient-to-r from-blue-500 to-indigo-600
-                                    group-hover:w-full transition-all duration-500">
-                                        </div>
 
-                                        <!-- Icon -->
-                                        <div class="relative flex items-center justify-center
-                                    w-16 h-16 mx-auto mb-6 rounded-full
-                                    bg-gradient-to-br from-blue-500 to-indigo-600
-                                    text-white shadow-lg
-                                    group-hover:scale-110 group-hover:rotate-6
-                                    transition duration-300">
-
-                                    <span class="material-symbols-outlined text-3xl">
-                                        school
-                                    </span>
-
-                                            <!-- Glow Effect -->
-                                            <div class="absolute inset-0 rounded-full blur-xl opacity-0
-                                        bg-blue-500 group-hover:opacity-40 transition">
+                                             <!-- Top Accent Bar -->
+                                            <div class="absolute top-0 left-0 w-0 h-1
+                                                bg-gradient-to-r from-blue-500 to-indigo-600
+                                                group-hover:w-full transition-all duration-500">
                                             </div>
 
+                                            <div class="relative flex items-center justify-center
+                                                w-16 h-16 mx-auto mb-6 rounded-full
+                                                bg-gradient-to-br from-blue-500 to-indigo-600
+                                                text-white shadow-lg
+                                                group-hover:scale-110 group-hover:rotate-6
+                                                transition duration-500">
+
+                                                <span class="material-symbols-outlined text-3xl">
+                                                    school
+                                                </span>
+
+                                                <div class="absolute inset-0 rounded-full blur-xl opacity-0
+                                                    bg-blue-500 group-hover:opacity-40 transition">
+                                                </div>
+                                            </div>
+
+                                                <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2">
+                                                    Academic Excellence
+                                                </h3>
+
+                                                <p class="text-sm leading-relaxed text-slate-700 dark:text-slate-300">
+                                                    Ranked among the
+                                                    <span class="font-semibold text-blue-600">
+                                                        Top 100 QS World Universities
+                                                    </span> and globally recognized for academic rigor.
+                                                </p>
+
                                         </div>
 
-                                        <!-- Title -->
-                                        <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2">
-                                            Academic Excellence
-                                        </h3>
 
-                                        <!-- Description -->
-                                        <p class="text-sm leading-relaxed text-slate-600 dark:text-slate-400">
-                                            Ranked among the
-                                            <span class="font-semibold text-blue-600">
-                                        Top 100 QS World Universities
-                                    </span>
-                                            and globally recognized for academic rigor.
-                                        </p>
-
-                                    </div>
                                     <!-- Global Reputation -->
-                                    <div class="group relative overflow-hidden p-8 rounded-3xl bg-white dark:bg-slate-900
-                                        border border-slate-200 dark:border-slate-800
-                                        hover:border-primary/40
-                                        hover:bg-gradient-to-br hover:from-purple-50 hover:to-indigo-50
-                                        dark:hover:from-slate-800 dark:hover:to-slate-900
-                                        shadow-md hover:shadow-xl
-                                        transition-all duration-300 hover:-translate-y-2 text-center">
+                                    <div class="card group relative overflow-hidden p-8 rounded-3xl
+                                        backdrop-blur-xl
+                                        bg-white/30 dark:bg-slate-900/30
+                                        border border-white/40 dark:border-slate-700/40
+                                        shadow-[0_10px_40px_rgba(0,0,0,0.18)]
+                                        hover:shadow-[0_25px_60px_rgba(0,0,0,0.3)]
+                                        transition-all duration-500
+                                        text-center">
 
                                         <!-- Top Accent Bar -->
                                         <div class="absolute top-0 left-0 w-0 h-1
-                                    bg-gradient-to-r from-purple-500 to-indigo-600
-                                    group-hover:w-full transition-all duration-500">
+                                            bg-gradient-to-r from-purple-500 to-indigo-600
+                                            group-hover:w-full transition-all duration-500">
                                         </div>
 
                                         <!-- Icon -->
                                         <div class="relative flex items-center justify-center
-                                    w-16 h-16 mx-auto mb-6 rounded-full
-                                    bg-gradient-to-br from-purple-500 to-indigo-600
-                                    text-white shadow-lg
-                                    group-hover:scale-110 group-hover:rotate-6
-                                    transition duration-300">
+                                            w-16 h-16 mx-auto mb-6 rounded-full
+                                            bg-gradient-to-br from-purple-500 to-indigo-600
+                                            text-white shadow-lg
+                                            group-hover:scale-110 group-hover:rotate-6
+                                            transition duration-300">
 
-                                    <span class="material-symbols-outlined text-3xl">
-                                        language
-                                    </span>
+                                                <span class="material-symbols-outlined text-3xl">
+                                                    language
+                                                </span>
 
                                             <!-- Glow Effect -->
                                             <div class="absolute inset-0 rounded-full blur-xl opacity-0
-                                        bg-purple-500 group-hover:opacity-40 transition">
+                                                bg-purple-500 group-hover:opacity-40 transition">
                                             </div>
 
                                         </div>
@@ -307,20 +402,23 @@
                                         <p class="text-sm leading-relaxed text-slate-600 dark:text-slate-400">
                                             Proud member of the
                                             <span class="font-semibold text-purple-600">
-                                        Group of Eight
-                                    </span>
+                                                 Group of Eight
+                                            </span>
                                             research-intensive universities with global recognition.
                                         </p>
 
                                     </div>
+
+
                                     <!-- Employability -->
-                                    <div class="group relative overflow-hidden p-8 rounded-3xl bg-white dark:bg-slate-900
-                                        border border-slate-200 dark:border-slate-800
-                                        hover:border-primary/40
-                                        hover:bg-gradient-to-br hover:from-emerald-50 hover:to-green-50
-                                        dark:hover:from-slate-800 dark:hover:to-slate-900
-                                        shadow-md hover:shadow-xl
-                                        transition-all duration-300 hover:-translate-y-2 text-center">
+                                    <div class="card group relative overflow-hidden p-8 rounded-3xl
+                                        backdrop-blur-xl
+                                        bg-white/30 dark:bg-slate-900/30
+                                        border border-white/40 dark:border-slate-700/40
+                                        shadow-[0_10px_40px_rgba(0,0,0,0.18)]
+                                        hover:shadow-[0_25px_60px_rgba(0,0,0,0.3)]
+                                        transition-all duration-500
+                                        text-center">
 
                                         <!-- Top Accent Bar -->
                                         <div class="absolute top-0 left-0 w-0 h-1
@@ -362,19 +460,22 @@
                                         </p>
 
                                     </div>
+
+
                                     <!-- Research Innovation -->
-                                    <div class="group relative overflow-hidden p-8 rounded-3xl bg-white dark:bg-slate-900
-                                        border border-slate-200 dark:border-slate-800
-                                        hover:border-primary/40
-                                        hover:bg-gradient-to-br hover:from-cyan-50 hover:to-blue-50
-                                        dark:hover:from-slate-800 dark:hover:to-slate-900
-                                        shadow-md hover:shadow-xl
-                                        transition-all duration-300 hover:-translate-y-2 text-center">
+                                    <div class="card group relative overflow-hidden p-8 rounded-3xl
+                                        backdrop-blur-xl
+                                        bg-white/30 dark:bg-slate-900/30
+                                        border border-white/40 dark:border-slate-700/40
+                                        shadow-[0_10px_40px_rgba(0,0,0,0.18)]
+                                        hover:shadow-[0_25px_60px_rgba(0,0,0,0.3)]
+                                        transition-all duration-500
+                                        text-center">
 
                                         <!-- Top Accent Bar -->
                                         <div class="absolute top-0 left-0 w-0 h-1
-                                    bg-gradient-to-r from-cyan-500 to-blue-600
-                                    group-hover:w-full transition-all duration-500">
+                                            bg-gradient-to-r from-cyan-500 to-blue-600
+                                            group-hover:w-full transition-all duration-500">
                                         </div>
 
                                         <!-- Icon -->
@@ -411,19 +512,22 @@
                                         </p>
 
                                     </div>
+
+
                                     <!-- Student Experience -->
-                                    <div class="group relative overflow-hidden p-8 rounded-3xl bg-white dark:bg-slate-900
-                                        border border-slate-200 dark:border-slate-800
-                                        hover:border-primary/40
-                                        hover:bg-gradient-to-br hover:from-orange-50 hover:to-pink-50
-                                        dark:hover:from-slate-800 dark:hover:to-slate-900
-                                        shadow-md hover:shadow-xl
-                                        transition-all duration-300 hover:-translate-y-2 text-center">
+                                    <div class="card group relative overflow-hidden p-8 rounded-3xl
+                                        backdrop-blur-xl
+                                        bg-white/30 dark:bg-slate-900/30
+                                        border border-white/40 dark:border-slate-700/40
+                                        shadow-[0_10px_40px_rgba(0,0,0,0.18)]
+                                        hover:shadow-[0_25px_60px_rgba(0,0,0,0.3)]
+                                        transition-all duration-500
+                                        text-center">
 
                                         <!-- Top Accent Bar -->
                                         <div class="absolute top-0 left-0 w-0 h-1
-                                    bg-gradient-to-r from-orange-400 to-pink-500
-                                    group-hover:w-full transition-all duration-500">
+                                            bg-gradient-to-r from-orange-400 to-pink-500
+                                            group-hover:w-full transition-all duration-500">
                                         </div>
 
                                         <!-- Icon -->
@@ -462,13 +566,14 @@
                                     </div>
 
                                     <!-- Scholarships & Support -->
-                                    <div class="group relative overflow-hidden p-8 rounded-3xl bg-white dark:bg-slate-900
-                                        border border-slate-200 dark:border-slate-800
-                                        hover:border-primary/40
-                                        hover:bg-gradient-to-br hover:from-amber-50 hover:to-yellow-50
-                                        dark:hover:from-slate-800 dark:hover:to-slate-900
-                                        shadow-md hover:shadow-xl
-                                        transition-all duration-300 hover:-translate-y-2 text-center">
+                                    <div class="card group relative overflow-hidden p-8 rounded-3xl
+                                        backdrop-blur-xl
+                                        bg-white/30 dark:bg-slate-900/30
+                                        border border-white/40 dark:border-slate-700/40
+                                        shadow-[0_10px_40px_rgba(0,0,0,0.18)]
+                                        hover:shadow-[0_25px_60px_rgba(0,0,0,0.3)]
+                                        transition-all duration-500
+                                        text-center">
 
                                         <!-- Top Accent Bar -->
                                         <div class="absolute top-0 left-0 w-0 h-1
@@ -647,197 +752,270 @@
                             <h2 class="font-black tracking-tight mb-6 text-5xl md:text-7xl text-white">Global
                                 Recognition &amp; Excellence</h2>
                         </div>
+
+
                         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+
                             <!-- QS Rankings -->
-                            <div
-                                    class="group bg-slate-900/50 p-8 rounded-2xl shadow-sm border border-slate-800
-flex flex-col items-center text-center
-hover:shadow-[0_0_25px_rgba(17,82,212,0.12)]
-hover:border-primary/40 transition-all duration-300
-hover:-translate-y-1 hover:scale-[1.01] cursor-pointer">
+                            <div class="relative group">
 
-                                <!-- Icon -->
-                                <div
-                                        class="size-16 rounded-full bg-primary/10 flex items-center justify-center
-    text-blue-400 mb-6
-    group-hover:bg-primary group-hover:text-white
-    transition-all duration-300">
-
-        <span class="material-symbols-outlined text-3xl">
-            public
-        </span>
-
+                                <div class="absolute -inset-6 bg-white/10 blur-3xl opacity-60
+                                    group-hover:opacity-90 transition duration-500">
                                 </div>
 
-                                <!-- Title -->
-                                <div class="mb-3">
+                                <!-- Glass Card -->
+                                <div class="relative backdrop-blur-xl bg-white/5
+                                    p-8 rounded-2xl shadow-sm border border-white/10
+                                    flex flex-col items-center text-center
+                                    hover:shadow-[0_0_35px_rgba(59,130,246,0.18)]
+                                    hover:border-blue-400/40
+                                    transition-all duration-300
+                                    hover:-translate-y-1 hover:scale-[1.02]
+                                    cursor-pointer overflow-hidden">
 
-        <span class="text-3xl font-extrabold text-white tracking-tight block mb-1
-        group-hover:text-blue-400 transition-colors">
+                                    <!-- Glass light reflection -->
+                                    <div class="absolute inset-0 bg-gradient-to-br
+                                        from-white/10 via-transparent to-transparent
+                                        opacity-40 pointer-events-none">
+                                    </div>
 
-            Top 100
+                                    <!-- Icon -->
+                                    <div class="relative size-16 rounded-full bg-blue-500/10
+                                        flex items-center justify-center
+                                        text-blue-400 mb-6
+                                        group-hover:bg-blue-500 group-hover:text-white
+                                        transition-all duration-300">
 
-        </span>
+                                        <span class="material-symbols-outlined text-3xl">
+                                            public
+                                        </span>
 
-                                    <div class="h-0.5 w-8 bg-blue-500/40 mx-auto rounded-full
-        group-hover:bg-blue-400 transition-colors"></div>
+                                    </div>
+
+                                    <!-- Title -->
+                                    <div class="mb-3 relative">
+
+                                        <span class="text-3xl font-extrabold text-white tracking-tight block mb-1
+                                            group-hover:text-blue-400 transition-colors">
+
+                                            Top 100
+
+                                        </span>
+
+                                        <div class="h-0.5 w-8 bg-blue-500/40 mx-auto rounded-full
+                                            group-hover:bg-blue-400 transition-colors">
+                                        </div>
+
+                                    </div>
+
+                                    <!-- Description -->
+                                    <p class="text-[11px] font-bold text-slate-400 uppercase
+                                        tracking-[0.18em] leading-relaxed px-2 relative">
+
+                                        QS World University Rankings
+
+                                    </p>
 
                                 </div>
-
-                                <!-- Description -->
-                                <p class="text-[11px] font-bold text-slate-500 uppercase
-    tracking-[0.18em] leading-relaxed px-2">
-
-                                    QS World University Rankings
-
-                                </p>
 
                             </div>
-                            <!-- THE Rankings -->
-                            <div
-                                    class="group bg-slate-900/50 p-8 rounded-2xl shadow-sm border border-slate-800
-flex flex-col items-center text-center
-hover:shadow-[0_0_25px_rgba(17,82,212,0.12)]
-hover:border-primary/40 transition-all duration-300
-hover:-translate-y-1 hover:scale-[1.01]
-hover:shadow-[0_20px_40px_-15px_rgba(17,82,212,0.25)]
-cursor-pointer">
 
-                                <!-- Icon -->
-                                <div
-                                        class="size-16 rounded-full bg-primary/10 flex items-center justify-center
-    text-blue-400 mb-6
-    group-hover:bg-primary group-hover:text-white
-    transition-all duration-300">
+                            <div class="relative group">
 
-        <span class="material-symbols-outlined text-3xl">
-            analytics
-        </span>
-
+                                <!-- Smokey Glow Background -->
+                                <div class="absolute -inset-6 bg-white/10 blur-3xl opacity-60
+                                    group-hover:opacity-90 transition duration-500">
                                 </div>
 
-                                <!-- Title -->
-                                <div class="mb-3">
+                                <!-- Glass Card -->
+                                <div class="relative backdrop-blur-xl bg-white/5 p-8 rounded-2xl
+                                    shadow-sm border border-white/10
+                                    flex flex-col items-center text-center
+                                    hover:shadow-[0_0_35px_rgba(59,130,246,0.18)]
+                                    hover:border-blue-400/40
+                                    transition-all duration-300
+                                    hover:-translate-y-1 hover:scale-[1.02]
+                                    cursor-pointer overflow-hidden">
 
-        <span class="text-3xl font-extrabold text-white tracking-tight block mb-1
-        group-hover:text-blue-400 transition-colors">
+                                    <!-- Glass Reflection -->
+                                    <div class="absolute inset-0 bg-gradient-to-br
+                                        from-white/10 via-transparent to-transparent
+                                        opacity-40 pointer-events-none">
+                                    </div>
 
-            Top 150
+                                    <!-- Icon -->
+                                    <div class="relative size-16 rounded-full bg-primary/10 flex items-center justify-center
+                                        text-blue-400 mb-6
+                                        group-hover:bg-primary group-hover:text-white
+                                        transition-all duration-300">
 
-        </span>
+                                        <span class="material-symbols-outlined text-3xl">
+                                            public
+                                        </span>
 
-                                    <div class="h-0.5 w-8 bg-blue-500/40 mx-auto rounded-full
-        group-hover:bg-blue-400 transition-colors"></div>
+                                    </div>
+
+                                    <!-- Title -->
+                                    <div class="mb-3 relative">
+
+                                        <span class="text-3xl font-extrabold text-white tracking-tight block mb-1
+                                            group-hover:text-blue-400 transition-colors">
+
+                                            Top 100
+
+                                        </span>
+
+                                        <div class="h-0.5 w-8 bg-blue-500/40 mx-auto rounded-full
+                                            group-hover:bg-blue-400 transition-colors">
+                                        </div>
+
+                                    </div>
+
+                                    <!-- Description -->
+                                    <p class="text-[11px] font-bold text-slate-400 uppercase
+                                        tracking-[0.18em] leading-relaxed px-2 relative">
+
+                                        QS World University Rankings
+
+                                    </p>
 
                                 </div>
-
-                                <!-- Description -->
-                                <p class="text-[11px] font-bold text-slate-500 uppercase
-    tracking-[0.18em] leading-relaxed px-2">
-
-                                    Times Higher Education Rankings
-
-                                </p>
 
                             </div>
+
+
                             <!-- Go8 -->
-                            <div
-                                    class="group bg-slate-900/50 p-8 rounded-2xl shadow-sm border border-slate-800
-flex flex-col items-center text-center
-hover:shadow-[0_0_25px_rgba(17,82,212,0.12)]
-hover:border-primary/40 transition-all duration-300
-hover:-translate-y-1 hover:scale-[1.01]
-hover:shadow-[0_20px_40px_-15px_rgba(17,82,212,0.25)]
-cursor-pointer">
+                            <div class="relative group">
 
-                                <!-- Icon -->
-                                <div
-                                        class="size-16 rounded-full bg-primary/10 flex items-center justify-center
-    text-blue-400 mb-6
-    group-hover:bg-primary group-hover:text-white
-    transition-all duration-300">
-
-        <span class="material-symbols-outlined text-3xl">
-            account_balance
-        </span>
-
+                                <!-- Smokey Glow -->
+                                <div class="absolute -inset-6 bg-white/10 blur-3xl opacity-60
+                                    group-hover:opacity-90 transition duration-500">
                                 </div>
 
-                                <!-- Title -->
-                                <div class="mb-3">
+                                <!-- Glass Card -->
+                                <div class="relative backdrop-blur-xl bg-white/5 p-8 rounded-2xl
+                                    border border-white/10
+                                    flex flex-col items-center text-center
+                                    hover:border-blue-400/40
+                                    transition-all duration-300
+                                    hover:-translate-y-1 hover:scale-[1.02]
+                                    hover:shadow-[0_20px_40px_-15px_rgba(17,82,212,0.25)]
+                                    cursor-pointer overflow-hidden">
 
-        <span class="text-3xl font-extrabold text-white tracking-tight block mb-1
-        group-hover:text-blue-400 transition-colors">
+                                    <!-- Glass Reflection -->
+                                    <div class="absolute inset-0 bg-gradient-to-br
+                                        from-white/10 via-transparent to-transparent
+                                        opacity-40 pointer-events-none">
+                                    </div>
 
-            Go8 Member
+                                    <!-- Icon -->
+                                    <div class="relative size-16 rounded-full bg-primary/10 flex items-center justify-center
+                                    text-blue-400 mb-6
+                                    group-hover:bg-primary group-hover:text-white
+                                    transition-all duration-300">
 
-        </span>
+                                    <span class="material-symbols-outlined text-3xl">
+                                        account_balance
+                                    </span>
 
-                                    <div class="h-0.5 w-8 bg-blue-500/40 mx-auto rounded-full
-        group-hover:bg-blue-400 transition-colors"></div>
+                                    </div>
+
+                                    <!-- Title -->
+                                    <div class="mb-3 relative">
+
+                                        <span class="text-3xl font-extrabold text-white tracking-tight block mb-1
+                                            group-hover:text-blue-400 transition-colors">
+
+                                            Go8 Member
+
+                                        </span>
+
+                                        <div class="h-0.5 w-8 bg-blue-500/40 mx-auto rounded-full
+                                            group-hover:bg-blue-400 transition-colors">
+                                        </div>
+
+                                    </div>
+
+                                    <!-- Description -->
+                                    <p class="text-[11px] font-bold text-slate-400 uppercase
+                                        tracking-[0.18em] leading-relaxed px-2 relative">
+
+                                        Australia's Leading Research Intensive
+
+                                    </p>
 
                                 </div>
-
-                                <!-- Description -->
-                                <p class="text-[11px] font-bold text-slate-500 uppercase
-    tracking-[0.18em] leading-relaxed px-2">
-
-                                    Australia's Leading Research Intensive Universities
-
-                                </p>
 
                             </div>
+
                             <!-- Subject Rankings -->
-                            <div
-                                    class="group bg-slate-900/50 p-8 rounded-2xl shadow-sm border border-slate-800
-flex flex-col items-center text-center
-hover:shadow-[0_0_25px_rgba(17,82,212,0.12)]
-hover:border-primary/40 transition-all duration-300
-hover:-translate-y-1 hover:scale-[1.01]
-hover:shadow-[0_20px_40px_-15px_rgba(17,82,212,0.25)]
-cursor-pointer">
+                            <div class="relative group">
 
-                                <!-- Icon -->
-                                <div
-                                        class="size-16 rounded-full bg-primary/10 flex items-center justify-center
-    text-blue-400 mb-6
-    group-hover:bg-primary group-hover:text-white
-    transition-all duration-300">
-
-        <span class="material-symbols-outlined text-3xl">
-            military_tech
-        </span>
-
+                                <!-- Smokey Glow -->
+                                <div class="absolute -inset-6 bg-white/10 blur-3xl opacity-60
+        group-hover:opacity-90 transition duration-500">
                                 </div>
 
-                                <!-- Title -->
-                                <div class="mb-3">
+                                <!-- Glass Card -->
+                                <div class="relative backdrop-blur-xl bg-white/5 p-8 rounded-2xl
+                                    border border-white/10
+                                    flex flex-col items-center text-center
+                                    hover:border-blue-400/40
+                                    transition-all duration-300
+                                    hover:-translate-y-1 hover:scale-[1.02]
+                                    hover:shadow-[0_20px_40px_-15px_rgba(17,82,212,0.25)]
+                                    cursor-pointer overflow-hidden">
 
-        <span class="text-3xl font-extrabold text-white tracking-tight block mb-1
-        group-hover:text-blue-400 transition-colors">
+                                    <!-- Glass Reflection -->
+                                    <div class="absolute inset-0 bg-gradient-to-br
+                                        from-white/10 via-transparent to-transparent
+                                        opacity-40 pointer-events-none">
+                                    </div>
 
-            World Class
+                                    <!-- Icon -->
+                                    <div class="relative size-16 rounded-full bg-primary/10 flex items-center justify-center
+                                        text-blue-400 mb-6
+                                        group-hover:bg-primary group-hover:text-white
+                                        transition-all duration-300">
 
-        </span>
+                                        <span class="material-symbols-outlined text-3xl">
+                                            military_tech
+                                        </span>
 
-                                    <div class="h-0.5 w-8 bg-blue-500/40 mx-auto rounded-full
-        group-hover:bg-blue-400 transition-colors"></div>
+                                    </div>
+
+                                    <!-- Title -->
+                                    <div class="mb-3 relative">
+
+                                        <span class="text-3xl font-extrabold text-white tracking-tight block mb-1
+                                            group-hover:text-blue-400 transition-colors">
+
+                                            World Class
+
+                                        </span>
+
+                                        <div class="h-0.5 w-8 bg-blue-500/40 mx-auto rounded-full
+                                            group-hover:bg-blue-400 transition-colors">
+                                        </div>
+
+                                    </div>
+
+                                    <!-- Description -->
+                                    <p class="text-[11px] font-bold text-slate-400 uppercase
+                                        tracking-[0.18em] leading-relaxed px-2 relative">
+
+                                        Engineering, Business & Computer Science
+
+                                    </p>
 
                                 </div>
-
-                                <!-- Description -->
-                                <p class="text-[11px] font-bold text-slate-500 uppercase
-    tracking-[0.18em] leading-relaxed px-2">
-
-                                    Engineering, Business & Computer Science
-
-                                </p>
 
                             </div>
+
                         </div>
+
                         <div class="mt-16 flex justify-center">
-                            <button
-                                class="bg-primary hover:bg-primary/90 text-white px-10 py-4 rounded-xl font-bold transition-all shadow-lg hover:shadow-primary/20">
+                            <button class="bg-primary hover:bg-primary/90 text-white px-10 py-4 rounded-xl font-bold transition-all shadow-lg hover:shadow-primary/20">
                                 Speak to Our Counsellors
                             </button>
                         </div>
@@ -845,7 +1023,7 @@ cursor-pointer">
                 </section>
 
                 <!-- Accordion Courses Section -->
-                <section class="py-8 bg-background-light dark:bg-background-dark/50 reveal-on-scroll" id="courses">
+                <section class="py-8 bg-slate-100 dark:bg-background-dark/50 reveal-on-scroll" id="courses">
                     <div class="max-w-7xl mx-auto px-6">
                         <div class="mb-12 text-center">
                             <span class="text-primary font-bold uppercase tracking-[0.2em] text-sm">Excellence in Education</span>
@@ -1302,136 +1480,463 @@ cursor-pointer">
                                 Scholarships For Students</h2>
                         </div>
                         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+
                             <!-- Scholarship 1 -->
-                            <div
-                                class="bg-slate-900/50 p-6 rounded-2xl border border-slate-800 hover:border-primary/40 transition-all duration-300 hover:-translate-y-2 hover:scale-[1.02] hover:shadow-[0_20px_40px_-15px_rgba(17,82,212,0.3)] cursor-pointer">
-                                <h3 class="text-white font-bold text-lg mb-2">Global Academic Excellence Scholarship
-                                </h3>
-                                <p class="text-primary font-bold text-sm mb-3">50% Tuition Fee Reduction</p>
-                                <p class="text-slate-400 text-xs leading-relaxed">For top-tier students with an ATAR
-                                    equivalent of 98 or above.</p>
+                            <div class="relative group">
+
+                                <!-- Smokey Glow -->
+                                <div class="absolute -inset-6 bg-white/10 blur-3xl opacity-60
+                                    group-hover:opacity-90 transition duration-500">
+                                </div>
+
+                                <!-- Glass Card -->
+                                <div class="relative backdrop-blur-xl bg-white/5 p-6 rounded-2xl
+                                    border border-white/10
+                                    hover:border-blue-400/40
+                                    transition-all duration-300
+                                    hover:-translate-y-2 hover:scale-[1.02]
+                                    hover:shadow-[0_20px_40px_-15px_rgba(17,82,212,0.3)]
+                                    cursor-pointer overflow-hidden">
+
+                                    <!-- Glass Reflection -->
+                                    <div class="absolute inset-0 bg-gradient-to-br
+                                        from-white/10 via-transparent to-transparent
+                                        opacity-40 pointer-events-none">
+                                    </div>
+
+                                    <!-- Title -->
+                                    <h3 class="relative text-white font-bold text-lg mb-2">
+                                        Global Academic Excellence Scholarship
+                                    </h3>
+
+                                    <!-- Highlight -->
+                                    <p class="relative text-primary font-bold text-sm mb-3">
+                                        50% Tuition Fee Reduction
+                                    </p>
+
+                                    <!-- Description -->
+                                    <p class="relative text-slate-400 text-xs leading-relaxed">
+                                        For top-tier students with an ATAR equivalent of 98 or above.
+                                    </p>
+
+                                </div>
+
                             </div>
+
                             <!-- Scholarship 2 -->
-                            <div
-                                class="bg-slate-900/50 p-6 rounded-2xl border border-slate-800 hover:border-primary/40 transition-all duration-300 hover:-translate-y-2 hover:scale-[1.02] hover:shadow-[0_20px_40px_-15px_rgba(17,82,212,0.3)] cursor-pointer">
-                                <h3 class="text-white font-bold text-lg mb-2">South Australian Government Scholarships
-                                </h3>
-                                <p class="text-primary font-bold text-sm mb-3">Full Study Support</p>
-                                <p class="text-slate-400 text-xs leading-relaxed">Available for students from select
-                                    partner regions across Asia and Europe.</p>
+                            <div class="relative group">
+
+                                <!-- Smokey Glow -->
+                                <div class="absolute -inset-6 bg-white/10 blur-3xl opacity-60
+                                    group-hover:opacity-90 transition duration-500">
+                                </div>
+
+                                <!-- Glass Card -->
+                                <div class="relative backdrop-blur-xl bg-white/5 p-6 rounded-2xl
+                                    border border-white/10
+                                    hover:border-blue-400/40
+                                    transition-all duration-300
+                                    hover:-translate-y-2 hover:scale-[1.02]
+                                    hover:shadow-[0_20px_40px_-15px_rgba(17,82,212,0.3)]
+                                    cursor-pointer overflow-hidden">
+
+                                    <!-- Glass Reflection -->
+                                    <div class="absolute inset-0 bg-gradient-to-br
+                                        from-white/10 via-transparent to-transparent
+                                        opacity-40 pointer-events-none">
+                                    </div>
+
+                                    <h3 class="relative text-white font-bold text-lg mb-2">
+                                        South Australian Government Scholarships
+                                    </h3>
+
+                                    <p class="relative text-primary font-bold text-sm mb-3">
+                                        Full Study Support
+                                    </p>
+
+                                    <p class="relative text-slate-400 text-xs leading-relaxed">
+                                        Available for students from select partner regions across Asia and Europe.
+                                    </p>
+
+                                </div>
+
                             </div>
+
                             <!-- Scholarship 3 -->
-                            <div
-                                class="bg-slate-900/50 p-6 rounded-2xl border border-slate-800 hover:border-primary/40 transition-all duration-300 hover:-translate-y-2 hover:scale-[1.02] hover:shadow-[0_20px_40px_-15px_rgba(17,82,212,0.3)] cursor-pointer">
-                                <h3 class="text-white font-bold text-lg mb-2">Family Scholarships</h3>
-                                <p class="text-primary font-bold text-sm mb-3">25% Fee Reduction</p>
-                                <p class="text-slate-400 text-xs leading-relaxed">For siblings or children of alumni
-                                    currently enrolled or graduated.</p>
+                            <div class="relative group">
+
+                                <!-- Smokey Glow -->
+                                <div class="absolute -inset-6 bg-white/10 blur-3xl opacity-60
+                                    group-hover:opacity-90 transition duration-500">
+                                </div>
+
+                                <!-- Glass Card -->
+                                <div class="relative backdrop-blur-xl bg-white/5 p-6 rounded-2xl
+                                    border border-white/10
+                                    hover:border-blue-400/40
+                                    transition-all duration-300
+                                    hover:-translate-y-2 hover:scale-[1.02]
+                                    hover:shadow-[0_20px_40px_-15px_rgba(17,82,212,0.3)]
+                                    cursor-pointer overflow-hidden">
+
+                                    <!-- Glass Reflection -->
+                                    <div class="absolute inset-0 bg-gradient-to-br
+                                        from-white/10 via-transparent to-transparent
+                                        opacity-40 pointer-events-none">
+                                    </div>
+
+                                    <h3 class="relative text-white font-bold text-lg mb-2">
+                                        Family Scholarships For Internationals
+                                    </h3>
+
+                                    <p class="relative text-primary font-bold text-sm mb-3">
+                                        25% Fee Reduction
+                                    </p>
+
+                                    <p class="relative text-slate-400 text-xs leading-relaxed">
+                                        For siblings or children of alumni currently enrolled or graduated.
+                                    </p>
+
+                                </div>
+
                             </div>
+
                             <!-- Scholarship 4 -->
-                            <div
-                                class="bg-slate-900/50 p-6 rounded-2xl border border-slate-800 hover:border-primary/40 transition-all duration-300 hover:-translate-y-2 hover:scale-[1.02] hover:shadow-[0_20px_40px_-15px_rgba(17,82,212,0.3)] cursor-pointer">
-                                <h3 class="text-white font-bold text-lg mb-2">Higher Education Relief Scholarship</h3>
-                                <p class="text-primary font-bold text-sm mb-3">One-off $10,000 Grant</p>
-                                <p class="text-slate-400 text-xs leading-relaxed">Designed for students facing
-                                    unexpected financial hardship during study.</p>
+                            <div class="relative group">
+
+                                <!-- Smokey Glow -->
+                                <div class="absolute -inset-6 bg-white/10 blur-3xl opacity-60
+                                    group-hover:opacity-90 transition duration-500">
+                                </div>
+
+                                <!-- Glass Card -->
+                                <div class="relative backdrop-blur-xl bg-white/5 p-6 rounded-2xl
+                                    border border-white/10
+                                    hover:border-blue-400/40
+                                    transition-all duration-300
+                                    hover:-translate-y-2 hover:scale-[1.02]
+                                    hover:shadow-[0_20px_40px_-15px_rgba(17,82,212,0.3)]
+                                    cursor-pointer overflow-hidden">
+
+                                    <!-- Glass Reflection -->
+                                    <div class="absolute inset-0 bg-gradient-to-br
+                                        from-white/10 via-transparent to-transparent
+                                        opacity-40 pointer-events-none">
+                                    </div>
+
+                                    <h3 class="relative text-white font-bold text-lg mb-2">
+                                        Higher Education Relief Scholarship
+                                    </h3>
+
+                                    <p class="relative text-primary font-bold text-sm mb-3">
+                                        One-off $10,000 Grant
+                                    </p>
+
+                                    <p class="relative text-slate-400 text-xs leading-relaxed">
+                                        Designed for students facing unexpected financial hardship during study.
+                                    </p>
+
+                                </div>
+
                             </div>
+
                             <!-- Scholarship 5 -->
-                            <div
-                                class="bg-slate-900/50 p-6 rounded-2xl border border-slate-800 hover:border-primary/40 transition-all duration-300 hover:-translate-y-2 hover:scale-[1.02] hover:shadow-[0_20px_40px_-15px_rgba(17,82,212,0.3)] cursor-pointer">
-                                <h3 class="text-white font-bold text-lg mb-2">Global Citizens Scholarship</h3>
-                                <p class="text-primary font-bold text-sm mb-3">15% - 30% Fee Reduction</p>
-                                <p class="text-slate-400 text-xs leading-relaxed">Awarded based on academic merit and
-                                    community leadership potential.</p>
+                            <div class="relative group">
+
+                                <!-- Smokey Glow -->
+                                <div class="absolute -inset-6 bg-white/10 blur-3xl opacity-60
+                                    group-hover:opacity-90 transition duration-500">
+                                </div>
+
+                                <!-- Glass Card -->
+                                <div class="relative backdrop-blur-xl bg-white/5 p-6 rounded-2xl
+                                    border border-white/10
+                                    hover:border-blue-400/40
+                                    transition-all duration-300
+                                    hover:-translate-y-2 hover:scale-[1.02]
+                                    hover:shadow-[0_20px_40px_-15px_rgba(17,82,212,0.3)]
+                                    cursor-pointer overflow-hidden">
+
+                                    <!-- Glass Reflection -->
+                                    <div class="absolute inset-0 bg-gradient-to-br
+                                        from-white/10 via-transparent to-transparent
+                                        opacity-40 pointer-events-none">
+                                    </div>
+
+                                    <h3 class="relative text-white font-bold text-lg mb-2">
+                                        Global Citizens Scholarship For Students
+                                    </h3>
+
+                                    <p class="relative text-primary font-bold text-sm mb-3">
+                                        15% - 30% Fee Reduction
+                                    </p>
+
+                                    <p class="relative text-slate-400 text-xs leading-relaxed">
+                                        Awarded based on academic merit and community leadership potential.
+                                    </p>
+
+                                </div>
+
                             </div>
+
                             <!-- Scholarship 6 -->
-                            <div
-                                class="bg-slate-900/50 p-6 rounded-2xl border border-slate-800 hover:border-primary/40 transition-all duration-300 hover:-translate-y-2 hover:scale-[1.02] hover:shadow-[0_20px_40px_-15px_rgba(17,82,212,0.3)] cursor-pointer">
-                                <h3 class="text-white font-bold text-lg mb-2">Science &amp; Tech Excellence Award</h3>
-                                <p class="text-primary font-bold text-sm mb-3">$5,000 Annual Stipend</p>
-                                <p class="text-slate-400 text-xs leading-relaxed">Specifically for STEM students
-                                    entering Undergraduate programs.</p>
+                            <div class="relative group">
+
+                                <!-- Smokey Glow -->
+                                <div class="absolute -inset-6 bg-white/10 blur-3xl opacity-60
+                                    group-hover:opacity-90 transition duration-500">
+                                </div>
+
+                                <!-- Glass Card -->
+                                <div class="relative backdrop-blur-xl bg-white/5 p-6 rounded-2xl
+                                    border border-white/10
+                                    hover:border-blue-400/40
+                                    transition-all duration-300
+                                    hover:-translate-y-2 hover:scale-[1.02]
+                                    hover:shadow-[0_20px_40px_-15px_rgba(17,82,212,0.3)]
+                                    cursor-pointer overflow-hidden">
+
+                                    <!-- Glass Reflection -->
+                                    <div class="absolute inset-0 bg-gradient-to-br
+                                        from-white/10 via-transparent to-transparent
+                                        opacity-40 pointer-events-none">
+                                    </div>
+
+                                    <h3 class="relative text-white font-bold text-lg mb-2">
+                                        Science &amp; Tech Excellence Award
+                                    </h3>
+
+                                    <p class="relative text-primary font-bold text-sm mb-3">
+                                        $5,000 Annual Stipend
+                                    </p>
+
+                                    <p class="relative text-slate-400 text-xs leading-relaxed">
+                                        Specifically for STEM students entering Undergraduate programs.
+                                    </p>
+
+                                </div>
+
                             </div>
+
                             <!-- Scholarship 7 -->
-                            <div
-                                class="bg-slate-900/50 p-6 rounded-2xl border border-slate-800 hover:border-primary/40 transition-all duration-300 hover:-translate-y-2 hover:scale-[1.02] hover:shadow-[0_20px_40px_-15px_rgba(17,82,212,0.3)] cursor-pointer">
-                                <h3 class="text-white font-bold text-lg mb-2">Postgraduate Research Grant</h3>
-                                <p class="text-primary font-bold text-sm mb-3">Living Allowance + Fees</p>
-                                <p class="text-slate-400 text-xs leading-relaxed">For PhD and Masters by Research
-                                    candidates in key innovation sectors.</p>
+                            <div class="relative group">
+
+                                <!-- Smokey Glow -->
+                                <div class="absolute -inset-6 bg-white/10 blur-3xl opacity-60
+                                    group-hover:opacity-90 transition duration-500">
+                                </div>
+
+                                <!-- Glass Card -->
+                                <div class="relative backdrop-blur-xl bg-white/5 p-6 rounded-2xl
+                                    border border-white/10
+                                    hover:border-blue-400/40
+                                    transition-all duration-300
+                                    hover:-translate-y-2 hover:scale-[1.02]
+                                    hover:shadow-[0_20px_40px_-15px_rgba(17,82,212,0.3)]
+                                    cursor-pointer overflow-hidden">
+
+                                    <!-- Glass Reflection -->
+                                    <div class="absolute inset-0 bg-gradient-to-br
+                                        from-white/10 via-transparent to-transparent
+                                        opacity-40 pointer-events-none">
+                                    </div>
+
+                                    <h3 class="relative text-white font-bold text-lg mb-2">
+                                        Postgraduate Research Grant
+                                    </h3>
+
+                                    <p class="relative text-primary font-bold text-sm mb-3">
+                                        Living Allowance + Fees
+                                    </p>
+
+                                    <p class="relative text-slate-400 text-xs leading-relaxed">
+                                        For PhD and Masters by Research candidates in key innovation sectors.
+                                    </p>
+
+                                </div>
+
                             </div>
+
                             <!-- Scholarship 8 -->
-                            <div
-                                class="bg-slate-900/50 p-6 rounded-2xl border border-slate-800 hover:border-primary/40 transition-all duration-300 hover:-translate-y-2 hover:scale-[1.02] hover:shadow-[0_20px_40px_-15px_rgba(17,82,212,0.3)] cursor-pointer">
-                                <h3 class="text-white font-bold text-lg mb-2">EAL Support Scholarship</h3>
-                                <p class="text-primary font-bold text-sm mb-3">$2,500 Support Credit</p>
-                                <p class="text-slate-400 text-xs leading-relaxed">For students requiring additional
-                                    English language bridging programs.</p>
+                            <div class="relative group">
+
+                                <!-- Smokey Glow -->
+                                <div class="absolute -inset-6 bg-white/10 blur-3xl opacity-60
+                                    group-hover:opacity-90 transition duration-500">
+                                </div>
+
+                                <!-- Glass Card -->
+                                <div class="relative backdrop-blur-xl bg-white/5 p-6 rounded-2xl
+                                    border border-white/10
+                                    hover:border-blue-400/40
+                                    transition-all duration-300
+                                    hover:-translate-y-2 hover:scale-[1.02]
+                                    hover:shadow-[0_20px_40px_-15px_rgba(17,82,212,0.3)]
+                                    cursor-pointer overflow-hidden">
+
+                                    <!-- Glass Reflection -->
+                                    <div class="absolute inset-0 bg-gradient-to-br
+                                        from-white/10 via-transparent to-transparent
+                                        opacity-40 pointer-events-none">
+                                    </div>
+
+                                    <h3 class="relative text-white font-bold text-lg mb-2">
+                                        EAL Support Scholarship For Internationals
+                                    </h3>
+
+                                    <p class="relative text-primary font-bold text-sm mb-3">
+                                        $2,500 Support Credit
+                                    </p>
+
+                                    <p class="relative text-slate-400 text-xs leading-relaxed">
+                                        For students requiring additional English language bridging programs.
+                                    </p>
+
+                                </div>
+
                             </div>
+
                         </div>
+
                         <div class="max-w-4xl mx-auto mt-16 mb-12 text-center">
                             <p class="text-white font-bold uppercase text-[10px] tracking-[0.4em] mb-6">Scholarship Application Deadline</p>
                             <div class="flex justify-center items-center gap-4 md:gap-8">
                                 <div class="flex flex-col items-center">
 
-                                    <div class="bg-slate-900 border border-slate-800 rounded-2xl size-20 md:size-28
-                                        flex items-center justify-center mb-3
-                                        shadow-[0_0_150px_rgba(255,255,255,0.8),0_25px_70px_rgba(0,0,0,0.75)]
-                                        shadow-primary/10 backdrop-blur-sm">
+                                    <div class="relative">
 
-                                        <span class="text-3xl md:text-5xl font-black text-white tracking-tighter">
-                                            <span id="timer-days">29</span>
-                                        </span>
+                                        <!-- Glass Timer Box -->
+                                        <div class="relative bg-white/5 backdrop-blur-xl border border-white/10
+                                            rounded-2xl size-20 md:size-28
+                                            flex items-center justify-center mb-3
+                                            shadow-[0_0_60px_rgba(255,255,255,0.35),0_25px_70px_rgba(0,0,0,0.75)]
+                                            overflow-hidden">
+
+                                            <!-- Glass Reflection -->
+                                            <div class="absolute inset-0 bg-gradient-to-br
+                                                from-white/10 via-transparent to-transparent
+                                                opacity-40 pointer-events-none">
+                                            </div>
+
+                                            <span class="relative text-3xl md:text-5xl font-black text-white tracking-tighter">
+                                                <span id="timer-days">29</span>
+                                            </span>
+
+                                        </div>
 
                                     </div>
 
-                                    <span class="text-[10px] md:text-xs font-bold text-slate-500 uppercase tracking-widest">
+                                    <span class="text-[10px] md:text-xs font-bold text-white uppercase tracking-widest">
                                         Days
                                     </span>
 
                                 </div>
-                                <div class="text-2xl md:text-4xl font-black text-slate-700 pb-8">:</div>
+
+                                <div class="text-2xl md:text-4xl text-white font-black text-slate-700 pb-8">:</div>
+
                                 <div class="flex flex-col items-center">
-                                    <div class="bg-slate-900 border border-slate-800 rounded-2xl size-20 md:size-28
-                                        flex items-center justify-center mb-3
-                                        shadow-[0_0_150px_rgba(255,255,255,0.8),0_25px_70px_rgba(0,0,0,0.75)]
-                                        shadow-primary/10 backdrop-blur-sm">
-                                        <span class="text-3xl md:text-5xl font-black text-white tracking-tighter"><span
-                                                id="timer-hours">23</span></span>
+
+                                    <div class="relative">
+
+                                        <!-- Glass Timer Box -->
+                                        <div class="relative bg-white/5 backdrop-blur-xl border border-white/10
+                                            rounded-2xl size-20 md:size-28
+                                            flex items-center justify-center mb-3
+                                            shadow-[0_0_60px_rgba(255,255,255,0.35),0_25px_70px_rgba(0,0,0,0.75)]
+                                            overflow-hidden">
+
+                                            <!-- Glass Reflection -->
+                                            <div class="absolute inset-0 bg-gradient-to-br
+                                                from-white/10 via-transparent to-transparent
+                                                opacity-40 pointer-events-none">
+                                            </div>
+
+                                            <span class="relative text-3xl md:text-5xl font-black text-white tracking-tighter">
+                                                <span id="timer-hours">23</span>
+                                            </span>
+
+                                        </div>
+
                                     </div>
-                                    <span
-                                        class="text-[10px] md:text-xs font-bold text-slate-500 uppercase tracking-widest">Hours</span>
+
+                                    <span class="text-[10px] md:text-xs font-bold text-white text-slate-500 uppercase tracking-widest">
+                                        Hours
+                                    </span>
+
                                 </div>
-                                <div class="text-2xl md:text-4xl font-black text-slate-700 pb-8">:</div>
+
+                                <div class="text-2xl md:text-4xl font-black text-white text-slate-700 pb-8">:</div>
+
                                 <div class="flex flex-col items-center">
-                                    <div class="bg-slate-900 border border-slate-800 rounded-2xl size-20 md:size-28
-                                        flex items-center justify-center mb-3
-                                        shadow-[0_0_150px_rgba(255,255,255,0.8),0_25px_70px_rgba(0,0,0,0.75)]
-                                        shadow-primary/10 backdrop-blur-sm">
-                                        <span class="text-3xl md:text-5xl font-black text-white tracking-tighter"><span
-                                                id="timer-minutes">59</span></span>
+
+                                    <div class="relative">
+
+                                        <!-- Glass Timer Box -->
+                                        <div class="relative bg-white/5 backdrop-blur-xl border border-white/10
+                                            rounded-2xl size-20 md:size-28
+                                            flex items-center justify-center mb-3
+                                            shadow-[0_0_60px_rgba(255,255,255,0.35),0_25px_70px_rgba(0,0,0,0.75)]
+                                            overflow-hidden">
+
+                                            <!-- Glass Reflection -->
+                                            <div class="absolute inset-0 bg-gradient-to-br
+                                                from-white/10 via-transparent to-transparent
+                                                opacity-40 pointer-events-none">
+                                            </div>
+
+                                            <span class="relative text-3xl md:text-5xl font-black text-white tracking-tighter">
+                                                <span id="timer-minutes">59</span>
+                                            </span>
+
+                                        </div>
+
                                     </div>
-                                    <span
-                                        class="text-[10px] md:text-xs font-bold text-slate-500 uppercase tracking-widest">Minutes</span>
+
+                                    <span class="text-[10px] md:text-xs font-bold text-white text-slate-500 uppercase tracking-widest">
+                                        Minutes
+                                    </span>
+
                                 </div>
-                                <div class="text-2xl md:text-4xl font-black text-slate-700 pb-8">:</div>
+
+                                <div class="text-2xl md:text-4xl font-black text-slate-700 pb-8 text-white">:</div>
+
                                 <div class="flex flex-col items-center">
-                                    <div class="bg-slate-900 border border-slate-800 rounded-2xl size-20 md:size-28
-                                        flex items-center justify-center mb-3
-                                        shadow-[0_0_150px_rgba(255,255,255,0.8),0_25px_70px_rgba(0,0,0,0.75)]
-                                        shadow-primary/10 backdrop-blur-sm">
-                                        <span class="text-3xl md:text-5xl font-black text-white tracking-tighter">
-                                            <span id="timer-seconds">45</span></span>
+
+                                    <div class="relative">
+
+                                        <!-- Glass Timer Box -->
+                                        <div class="relative bg-white/5 backdrop-blur-xl border border-white/10
+                                            rounded-2xl size-20 md:size-28
+                                            flex items-center justify-center mb-3
+                                            shadow-[0_0_60px_rgba(255,255,255,0.35),0_25px_70px_rgba(0,0,0,0.75)]
+                                            overflow-hidden">
+
+                                            <!-- Glass Reflection -->
+                                            <div class="absolute inset-0 bg-gradient-to-br
+                                                from-white/10 via-transparent to-transparent
+                                                opacity-40 pointer-events-none">
+                                            </div>
+
+                                            <span class="relative text-3xl md:text-5xl font-black text-white tracking-tighter">
+                                                <span id="timer-seconds">45</span>
+                                            </span>
+
+                                        </div>
+
                                     </div>
-                                    <span
-                                        class="text-[10px] md:text-xs font-bold text-slate-500 uppercase tracking-widest">Seconds</span>
+
+                                    <span class="text-[10px] text-white md:text-xs font-bold text-slate-500 uppercase tracking-widest">
+                                        Seconds
+                                    </span>
+
                                 </div>
+
                             </div>
                         </div>
                     </div>
                 </section>
                 <!-- Tabbed Media Section -->
-                <section class="py-24 bg-white dark:bg-background-dark overflow-hidden reveal-on-scroll" id="campus">
+                <section class="py-24 bg-slate-100 dark:bg-background-dark overflow-hidden reveal-on-scroll" id="campus">
                     <div class="max-w-7xl mx-auto px-6">
                         <div class="relative" id="tab-content-container">
                             <div class="flex items-center gap-8 border-b border-slate-100 dark:border-slate-800 mb-12">
@@ -1590,184 +2095,583 @@ cursor-pointer">
                         </div>
                     </div>
                 </section>
-                <!-- Contact Form Section (Specific 8-field form) -->
-                <section class="py-24 bg-slate-50 dark:bg-slate-900/30 reveal-on-scroll" id="contact">
-                    <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16">
-                        <div class="space-y-8">
-                            <h2 class="text-4xl font-black dark:text-white text-[#150C5D]">Start Your Journey.</h2>
-                            <p class="text-slate-600 dark:text-slate-400">Fill out the form below and an admissions
-                                counselor will contact you within 24 hours to discuss your academic future.</p>
-                            <div class="flex flex-col gap-6">
-                                <div class="flex items-center gap-4">
-                                    <div
-                                        class="size-12 rounded-full bg-primary/10 flex items-center justify-center text-primary">
-                                        <span class="material-symbols-outlined">call</span>
-                                    </div>
-                                    <div>
-                                        <div class="text-xs uppercase font-bold text-slate-400">Call Us</div>
-                                        <div class="text-lg font-bold text-slate-900 dark:text-white">+61 8 8313 5208
+
+                <section class="py-8 dark:bg-background-dark" id="testimonials" style="background-color: #050229;">
+                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 reveal">
+                        <div class="text-center max-w-3xl mx-auto mb-12">
+                            <h2 class="text-4xl font-black text-white dark:text-white mb-4">What Our Students Say</h2>
+                            <p class="text-slate-600 dark:text-slate-400 text-lg text-white">
+                                Hear from international students who have started their global careers with a degree from Adelaide University.
+                            </p>
+                        </div>
+
+                        <div class="swiper testimonialSlider max-w-7xl mx-auto p-5 lg:px-12">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <div class="relative backdrop-blur-xl bg-white/5
+                                    p-8 rounded-2xl border border-white/10
+                                    flex flex-col
+                                    shadow-[0_0_35px_rgba(255,255,255,0.25),0_20px_60px_rgba(0,0,0,0.7)]
+                                    overflow-hidden">
+
+                                        <!-- Reflection -->
+                                        <div class="absolute inset-0 bg-gradient-to-br
+                                        from-white/10 via-transparent to-transparent
+                                        opacity-40 pointer-events-none"></div>
+
+                                        <!-- Stars -->
+                                        <div class="relative flex gap-1 text-yellow-400 mb-6">
+                                            <span class="material-symbols-outlined">star</span>
+                                            <span class="material-symbols-outlined">star</span>
+                                            <span class="material-symbols-outlined">star</span>
+                                            <span class="material-symbols-outlined">star</span>
+                                            <span class="material-symbols-outlined">star</span>
                                         </div>
-                                    </div>
-                                </div>
-                                <div class="flex items-center gap-4">
-                                    <div
-                                        class="size-12 rounded-full bg-primary/10 flex items-center justify-center text-primary">
-                                        <span class="material-symbols-outlined">mail</span>
-                                    </div>
-                                    <div>
-                                        <div class="text-xs uppercase font-bold text-slate-400">Email Us</div>
-                                        <div class="text-lg font-bold text-slate-900 dark:text-white">
-                                            admissions@adelaide.edu.au</div>
-                                    </div>
-                                </div>
-                                <div class="flex items-center gap-4">
-                                    <div
-                                        class="size-12 rounded-full bg-primary/10 flex items-center justify-center text-primary">
-                                        <span class="material-symbols-outlined">location_on</span>
-                                    </div>
-                                    <div>
-                                        <div class="text-xs uppercase font-bold text-slate-400">Visit Us</div>
-                                        <div class="text-lg font-bold text-slate-900 dark:text-white">North Terrace,
-                                            Adelaide SA 5005</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="pt-12 mt-12 border border-blue-200 bg-white p-8 rounded-[2rem] text-slate-900 shadow-lg shadow-blue-500/10"style="background-color: white;">
-                                <div
-                                    class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-[10px] font-bold tracking-[0.2em] uppercase mb-6">
-                                    About PFEC Global
-                                </div>
-                                <div class="grid grid-cols-2 gap-x-8 gap-y-10">
-                                    <div class="space-y-1">
-                                        <div class="text-2xl font-black text-blue-400">22,000+</div>
-                                        <div class="text-xs font-bold text-slate-400 uppercase tracking-wider">Students
-                                            Assisted</div>
-                                    </div>
-                                    <div class="space-y-1">
-                                        <div class="text-2xl font-black text-blue-400">550+</div>
-                                        <div class="text-xs font-bold text-slate-400 uppercase tracking-wider">Partner
-                                            Institutions</div>
-                                    </div>
-                                    <div class="space-y-1">
-                                        <div class="text-2xl font-black text-blue-400">18+ Years</div>
-                                        <div class="text-xs font-bold text-slate-400 uppercase tracking-wider">Expertise
+
+                                        <p class="relative text-slate-300 italic mb-8 flex-grow">
+                                            "The facilities at Adelaide University are world-class.
+                                            PFEC Global made my transition to Australia incredibly smooth."
+                                        </p>
+
+                                        <div class="relative flex items-center gap-4">
+                                            <img class="w-14 h-14 rounded-full object-cover border-2 border-[#2863D8]"
+                                                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuCka5JbTTnPQPYbt3C38PmBwIEPwLL6hNTfDaGxxraZszuCqMp_tJO6XqVW1ELMbPDiUcEl3IkY5ak7sbKA-xSZo1VOhyWZeJHoUJl8VfL35QjSKnv0qQPxSMtQt3Kn5Dt_o6rSNQMMKJ6TpsWJAGmOGBoOqz6Au0XnEAzncwjrmDm-Ek4M-X7549GOXldvtHwW365-Lf1J9wSkRAf6a-mnHLoN56r5cVozXwpfeqlkBQznuvSdxRbdJmz8C1EMkoUUxFdktXiaL6_8"/>
+
+                                            <div>
+                                                <h4 class="font-bold text-white">Sarah Chen</h4>
+                                                <p class="text-xs text-[#2863D8] font-semibold uppercase tracking-wider">
+                                                    Master of Business Analytics
+                                                </p>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="space-y-1">
-                                        <div class="text-2xl font-black text-blue-400">12 Offices</div>
-                                        <div class="text-xs font-bold text-slate-400 uppercase tracking-wider">Globally
-                                        </div>
+
                                     </div>
                                 </div>
-                                <p
-                                    class="mt-10 text-sm leading-relaxed italic border-l-2 border-blue-500/30 pl-4 text-slate-600">
-                                    "Students feel more confident knowing they will receive professional support
-                                    throughout the admission and visa process."
-                                </p>
-                                <div class="mt-8">
-                                    <div class="text-[10px] font-bold text-slate-500 uppercase tracking-[0.2em] mb-4">
-                                        Our Presence</div>
-                                    <div class="flex flex-wrap gap-3"><span
-                                            class="flex items-center gap-2 px-3 py-1.5 bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-full text-[10px] font-bold text-slate-600 dark:text-slate-300">
-                                            <span
-                                                class="material-symbols-outlined text-xs text-primary">location_on</span>
-                                            Australia (AU)
-                                        </span>
-                                        <span
-                                            class="flex items-center gap-2 px-3 py-1.5 bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-full text-[10px] font-bold text-slate-600 dark:text-slate-300">
-                                            <span
-                                                class="material-symbols-outlined text-xs text-primary">location_on</span>
-                                            Bangladesh (BD)
-                                        </span>
-                                        <span
-                                            class="flex items-center gap-2 px-3 py-1.5 bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-full text-[10px] font-bold text-slate-600 dark:text-slate-300">
-                                            <span
-                                                class="material-symbols-outlined text-xs text-primary">location_on</span>
-                                            India (IN)
-                                        </span>
-                                        <span
-                                            class="flex items-center gap-2 px-3 py-1.5 bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-full text-[10px] font-bold text-slate-600 dark:text-slate-300">
-                                            <span
-                                                class="material-symbols-outlined text-xs text-primary">location_on</span>
-                                            Sri Lanka (LK)
-                                        </span>
+                                <div class="swiper-slide">
+                                    <div class="relative backdrop-blur-xl bg-white/5
+                                        p-8 rounded-2xl border border-white/10
+                                        flex flex-col
+                                        shadow-[0_0_35px_rgba(255,255,255,0.25),0_20px_60px_rgba(0,0,0,0.7)]
+                                        overflow-hidden">
+
+                                        <!-- Reflection -->
+                                        <div class="absolute inset-0 bg-gradient-to-br
+                                            from-white/10 via-transparent to-transparent
+                                            opacity-40 pointer-events-none"></div>
+
+                                        <!-- Stars -->
+                                        <div class="relative flex gap-1 text-yellow-400 mb-6">
+                                            <span class="material-symbols-outlined">star</span>
+                                            <span class="material-symbols-outlined">star</span>
+                                            <span class="material-symbols-outlined">star</span>
+                                            <span class="material-symbols-outlined">star</span>
+                                            <span class="material-symbols-outlined">star</span>
+                                        </div>
+
+                                        <p class="relative text-slate-300 italic mb-8 flex-grow">
+                                            "The facilities at Adelaide University are world-class.
+                                            PFEC Global made my transition to Australia incredibly smooth."
+                                        </p>
+
+                                        <div class="relative flex items-center gap-4">
+                                            <img class="w-14 h-14 rounded-full object-cover border-2 border-[#2863D8]"
+                                                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuCka5JbTTnPQPYbt3C38PmBwIEPwLL6hNTfDaGxxraZszuCqMp_tJO6XqVW1ELMbPDiUcEl3IkY5ak7sbKA-xSZo1VOhyWZeJHoUJl8VfL35QjSKnv0qQPxSMtQt3Kn5Dt_o6rSNQMMKJ6TpsWJAGmOGBoOqz6Au0XnEAzncwjrmDm-Ek4M-X7549GOXldvtHwW365-Lf1J9wSkRAf6a-mnHLoN56r5cVozXwpfeqlkBQznuvSdxRbdJmz8C1EMkoUUxFdktXiaL6_8"/>
+
+                                            <div>
+                                                <h4 class="font-bold text-white">Sarah Chen</h4>
+                                                <p class="text-xs text-[#2863D8] font-semibold uppercase tracking-wider">
+                                                    Master of Business Analytics
+                                                </p>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="relative backdrop-blur-xl bg-white/5
+                                    p-8 rounded-2xl border border-white/10
+                                    flex flex-col
+                                    shadow-[0_0_35px_rgba(255,255,255,0.25),0_20px_60px_rgba(0,0,0,0.7)]
+                                    overflow-hidden">
+
+                                        <!-- Reflection -->
+                                        <div class="absolute inset-0 bg-gradient-to-br
+                                        from-white/10 via-transparent to-transparent
+                                        opacity-40 pointer-events-none"></div>
+
+                                        <!-- Stars -->
+                                        <div class="relative flex gap-1 text-yellow-400 mb-6">
+                                            <span class="material-symbols-outlined">star</span>
+                                            <span class="material-symbols-outlined">star</span>
+                                            <span class="material-symbols-outlined">star</span>
+                                            <span class="material-symbols-outlined">star</span>
+                                            <span class="material-symbols-outlined">star</span>
+                                        </div>
+
+                                        <p class="relative text-slate-300 italic mb-8 flex-grow">
+                                            "The facilities at Adelaide University are world-class.
+                                            PFEC Global made my transition to Australia incredibly smooth."
+                                        </p>
+
+                                        <div class="relative flex items-center gap-4">
+                                            <img class="w-14 h-14 rounded-full object-cover border-2 border-[#2863D8]"
+                                                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuCka5JbTTnPQPYbt3C38PmBwIEPwLL6hNTfDaGxxraZszuCqMp_tJO6XqVW1ELMbPDiUcEl3IkY5ak7sbKA-xSZo1VOhyWZeJHoUJl8VfL35QjSKnv0qQPxSMtQt3Kn5Dt_o6rSNQMMKJ6TpsWJAGmOGBoOqz6Au0XnEAzncwjrmDm-Ek4M-X7549GOXldvtHwW365-Lf1J9wSkRAf6a-mnHLoN56r5cVozXwpfeqlkBQznuvSdxRbdJmz8C1EMkoUUxFdktXiaL6_8"/>
+
+                                            <div>
+                                                <h4 class="font-bold text-white">Sarah Chen</h4>
+                                                <p class="text-xs text-[#2863D8] font-semibold uppercase tracking-wider">
+                                                    Master of Business Analytics
+                                                </p>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="relative backdrop-blur-xl bg-white/5
+                                        p-8 rounded-2xl border border-white/10
+                                        flex flex-col
+                                        shadow-[0_0_35px_rgba(255,255,255,0.25),0_20px_60px_rgba(0,0,0,0.7)]
+                                        overflow-hidden">
+
+                                        <!-- Reflection -->
+                                        <div class="absolute inset-0 bg-gradient-to-br
+                                            from-white/10 via-transparent to-transparent
+                                            opacity-40 pointer-events-none"></div>
+
+                                        <!-- Stars -->
+                                        <div class="relative flex gap-1 text-yellow-400 mb-6">
+                                            <span class="material-symbols-outlined">star</span>
+                                            <span class="material-symbols-outlined">star</span>
+                                            <span class="material-symbols-outlined">star</span>
+                                            <span class="material-symbols-outlined">star</span>
+                                            <span class="material-symbols-outlined">star</span>
+                                        </div>
+
+                                        <p class="relative text-slate-300 italic mb-8 flex-grow">
+                                            "The facilities at Adelaide University are world-class.
+                                            PFEC Global made my transition to Australia incredibly smooth."
+                                        </p>
+
+                                        <div class="relative flex items-center gap-4">
+                                            <img class="w-14 h-14 rounded-full object-cover border-2 border-[#2863D8]"
+                                                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuCka5JbTTnPQPYbt3C38PmBwIEPwLL6hNTfDaGxxraZszuCqMp_tJO6XqVW1ELMbPDiUcEl3IkY5ak7sbKA-xSZo1VOhyWZeJHoUJl8VfL35QjSKnv0qQPxSMtQt3Kn5Dt_o6rSNQMMKJ6TpsWJAGmOGBoOqz6Au0XnEAzncwjrmDm-Ek4M-X7549GOXldvtHwW365-Lf1J9wSkRAf6a-mnHLoN56r5cVozXwpfeqlkBQznuvSdxRbdJmz8C1EMkoUUxFdktXiaL6_8"/>
+
+                                            <div>
+                                                <h4 class="font-bold text-white">Sarah Chen</h4>
+                                                <p class="text-xs text-[#2863D8] font-semibold uppercase tracking-wider">
+                                                    Master of Business Analytics
+                                                </p>
+                                            </div>
+                                        </div>
+
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="bg-white dark:bg-slate-800 p-8 md:p-12 rounded-[2.5rem] shadow-xl border border-slate-100 dark:border-slate-800">
-                            <form class="space-y-6">
-                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                                    <div class="space-y-2">
-                                        <label class="text-xs font-bold text-slate-500 uppercase tracking-wider">First
-                                            Name</label>
-                                        <input
-                                            class="w-full bg-slate-50 dark:bg-slate-900 border-none rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-primary"
-                                            placeholder="John" type="text" />
+                    </div>
+                </section >
+
+                <section class="py-8 bg-slate-100 dark:bg-slate-800/50" id="faq">
+                    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 reveal">
+                        <div class="text-center mb-8">
+                            <h2 class="text-4xl font-black text-slate-900 dark:text-white mb-4" style="color: #150C5D;">Frequently Asked Questions</h2>
+                            <p class="text-slate-600 dark:text-slate-400 text-lg">Quick answers to the most common questions
+                                from international students.</p>
+                        </div>
+                        <div class="space-y-6">
+                            <details class="group bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm overflow-hidden" open>
+                                <summary class="flex items-center justify-between p-6 cursor-pointer list-none">
+                                    <h3 class="text-lg font-bold text-slate-900 dark:text-white">What are the specific entry
+                                        requirements for Adelaide University?</h3>
+                                    <span
+                                            class="material-symbols-outlined transition-transform group-open:rotate-180">expand_more</span>
+                                </summary>
+                                <div class="px-6 pb-6">
+                                    <p class="text-slate-600 dark:text-slate-400">Entry requirements are tiered based on your
+                                        chosen program. For undergraduates, successful completion of a recognized secondary
+                                        qualification (like A-Levels, IB, or ATAR) is required. Postgraduates need a bachelor's
+                                        degree from a recognized institution with a minimum GPA. English proficiency (IELTS 6.5+
+                                        or equivalent) is mandatory for most programs.</p>
+                                </div>
+                            </details>
+                            <details
+                                    class="group bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm overflow-hidden">
+                                <summary class="flex items-center justify-between p-6 cursor-pointer list-none">
+                                    <h3 class="text-lg font-bold text-slate-900 dark:text-white">What student support services
+                                        are available on campus?</h3>
+                                    <span
+                                            class="material-symbols-outlined transition-transform group-open:rotate-180">expand_more</span>
+                                </summary>
+                                <div class="px-6 pb-6">
+                                    <p class="text-slate-600 dark:text-slate-400">We provide comprehensive support including:
+                                        <br />• <b>Career Services:</b> Job placement, internship matching, and resume
+                                        workshops.
+                                        <br />• <b>Accommodation:</b> Assistance with university-managed housing and private
+                                        rentals.
+                                        <br />• <b>Health &amp; Wellbeing:</b> On-campus medical clinics, 24/7 counseling, and
+                                        fitness centers.
+                                    </p>
+                                </div>
+                            </details>
+                            <details
+                                    class="group bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm overflow-hidden">
+                                <summary class="flex items-center justify-between p-6 cursor-pointer list-none">
+                                    <h3 class="text-lg font-bold text-slate-900 dark:text-white">Are there scholarships
+                                        available for international students?</h3>
+                                    <span
+                                            class="material-symbols-outlined transition-transform group-open:rotate-180">expand_more</span>
+                                </summary>
+                                <div class="px-6 pb-6">
+                                    <p class="text-slate-600 dark:text-slate-400">Yes! Adelaide University offers several
+                                        scholarships, including the Global Citizens Scholarship, which can reduce tuition fees
+                                        by 15% to 30%. PFEC Global can also help you identify exclusive bursaries.</p>
+                                </div>
+                            </details>
+                            <details
+                                    class="group bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm overflow-hidden">
+                                <summary class="flex items-center justify-between p-6 cursor-pointer list-none">
+                                    <h3 class="text-lg font-bold text-slate-900 dark:text-white">How can PFEC Global help with
+                                        my application?</h3>
+                                    <span
+                                            class="material-symbols-outlined transition-transform group-open:rotate-180">expand_more</span>
+                                </summary>
+                                <div class="px-6 pb-6">
+                                    <p class="text-slate-600 dark:text-slate-400">PFEC Global provides end-to-end support,
+                                        including course selection advice, document certification, application submission, visa
+                                        processing assistance, and pre-departure briefings—all free of charge for students.</p>
+                                </div>
+                            </details>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Contact Form Section (Specific 8-field form) -->
+                <section class="py-24 bg-slate-100 dark:bg-slate-900/30 reveal-on-scroll" id="contact" style="background-color: #050229;">
+
+                    <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-start">
+
+                        <div class="space-y-8">
+                            <h2 class="text-4xl font-black text-white dark:text-white text-[#150C5D]">Start Your Journey.</h2>
+                            <p class="text-slate-600 dark:text-slate-400 text-white">Fill out the form below and an admissions
+                                counselor will contact you within 24 hours to discuss your academic future.</p>
+
+                            <div class="flex flex-col gap-6">
+                                <div class="flex items-center gap-4">
+                                    <div class="relative">
+
+                                        <!-- Smoky Glow -->
+                                        <div class="absolute -inset-2 bg-white/20 blur-xl rounded-full"></div>
+
+                                        <!-- Icon Circle -->
+                                        <div class="relative size-12 rounded-full bg-primary/20 backdrop-blur-md
+                                            flex items-center justify-center
+                                            shadow-[0_0_4px_rgba(255,255,255,0.35)]
+                                            border border-white/20">
+
+                                            <!-- Glossy reflection -->
+                                            <div class="absolute inset-0 rounded-full bg-gradient-to-br
+                                                from-white/30 via-transparent to-transparent opacity-60"></div>
+
+                                            <span class="material-symbols-outlined text-white relative">
+                                                call
+                                            </span>
+
+                                        </div>
+
                                     </div>
-                                    <div class="space-y-2">
-                                        <label class="text-xs font-bold text-slate-500 uppercase tracking-wider">Last
-                                            Name</label>
-                                        <input
-                                            class="w-full bg-slate-50 dark:bg-slate-900 border-none rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-primary"
-                                            placeholder="Doe" type="text" />
+                                    <div>
+                                        <div class="text-xs uppercase font-bold text-slate-400  text-white">Call Us</div>
+                                        <div class="text-lg font-bold text-slate-900 dark:text-white text-white">+61 8 8313 5208</div>
                                     </div>
                                 </div>
-                                <div class="space-y-2">
-                                    <label class="text-xs font-bold text-slate-500 uppercase tracking-wider">Email
-                                        Address</label>
-                                    <input
-                                        class="w-full bg-slate-50 dark:bg-slate-900 border-none rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-primary"
-                                        placeholder="john@example.com" type="email" />
+                                <div class="flex items-center gap-4">
+
+                                    <div class="relative">
+
+                                        <!-- Smoky Glow -->
+                                        <div class="absolute -inset-2 bg-white/20 blur-xl rounded-full"></div>
+
+                                        <!-- Icon Circle -->
+                                        <div class="relative size-12 rounded-full bg-primary/20 backdrop-blur-md
+                                            flex items-center justify-center
+                                            shadow-[0_0_4px_rgba(255,255,255,0.35)]
+                                            border border-white/20">
+
+                                            <!-- Glossy reflection -->
+                                            <div class="absolute inset-0 rounded-full bg-gradient-to-br
+                                                from-white/30 via-transparent to-transparent opacity-60"></div>
+
+                                            <span class="material-symbols-outlined text-white relative">
+                                                mail
+                                            </span>
+
+                                        </div>
+
+                                    </div>
+                                    <div>
+                                        <div class="text-xs uppercase font-bold text-slate-400 text-white">Email Us</div>
+                                        <div class="text-lg font-bold text-slate-900 dark:text-white text-white">admissions@adelaide.edu.au</div>
+                                    </div>
                                 </div>
-                                <div class="space-y-2">
-                                    <label class="text-xs font-bold text-slate-500 uppercase tracking-wider">Phone
-                                        Number</label>
-                                    <input
-                                        class="w-full bg-slate-50 dark:bg-slate-900 border-none rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-primary"
-                                        placeholder="+61 X XXX XXX" type="tel" />
+                                <div class="flex items-center gap-4">
+
+                                    <div class="relative">
+
+                                        <!-- Smoky Glow -->
+                                        <div class="absolute -inset-2 bg-white/20 blur-xl rounded-full"></div>
+
+                                        <!-- Icon Circle -->
+                                        <div class="relative size-12 rounded-full bg-primary/20 backdrop-blur-md
+                                            flex items-center justify-center
+                                            shadow-[0_0_4px_rgba(255,255,255,0.35)]
+                                            border border-white/20">
+
+                                            <!-- Glossy reflection -->
+                                            <div class="absolute inset-0 rounded-full bg-gradient-to-br
+                                                from-white/30 via-transparent to-transparent opacity-60"></div>
+
+                                            <span class="material-symbols-outlined text-white relative">
+                                                location_on
+                                            </span>
+
+                                        </div>
+
+                                    </div>
+
+                                    <div>
+                                        <div class="text-xs uppercase font-bold text-slate-400 text-white">Visit Us</div>
+                                        <div class="text-lg font-bold text-slate-900 dark:text-white text-white">North Terrace,Adelaide SA 5005</div>
+                                    </div>
                                 </div>
+                            </div>
+
+
+                            <div class="pfec-card relative pt-12 mt-12 p-8 rounded-[2rem]
+                                backdrop-blur-xl bg-white/5
+                                border border-white/10
+                                text-white
+                                overflow-hidden">
+
+                                                                <!-- gradient glow border -->
+                                                                <div class="absolute inset-0 rounded-[2rem] opacity-0 hover:opacity-100 transition duration-500
+                                    bg-gradient-to-r from-blue-500/20 via-indigo-500/20 to-purple-500/20 blur-xl"></div>
+
+                                                                <!-- glass reflection -->
+                                                                <div class="absolute inset-0 bg-gradient-to-br
+                                    from-white/10 via-transparent to-transparent
+                                    opacity-40 pointer-events-none"></div>
+
+                                                                <!-- badge -->
+                                                                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full
+                                    bg-blue-500/10 border border-blue-400/20
+                                    text-blue-300 text-[10px] font-bold tracking-[0.2em] uppercase mb-8">
+                                                                    About PFEC Global
+                                                                </div>
+
+                                                                <!-- stats -->
+                                                                <div class="grid grid-cols-2 gap-x-10 gap-y-10">
+
+                                                                    <div>
+                                                                        <div class="text-3xl font-black text-blue-400">22,000+</div>
+                                                                        <div class="text-[11px] font-bold text-slate-400 uppercase tracking-wider">
+                                                                            Students Assisted
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div>
+                                                                        <div class="text-3xl font-black text-blue-400">550+</div>
+                                                                        <div class="text-[11px] font-bold text-slate-400 uppercase tracking-wider">
+                                                                            Partner Institutions
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div>
+                                                                        <div class="text-3xl font-black text-blue-400">18+ Years</div>
+                                                                        <div class="text-[11px] font-bold text-slate-400 uppercase tracking-wider">
+                                                                            Expertise
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div>
+                                                                        <div class="text-3xl font-black text-blue-400">12 Offices</div>
+                                                                        <div class="text-[11px] font-bold text-slate-400 uppercase tracking-wider">
+                                                                            Globally
+                                                                        </div>
+                                                                    </div>
+
+                                                                </div>
+
+                                                                <!-- quote -->
+                                                                <p class="mt-10 text-sm leading-relaxed italic border-l-2 border-blue-400/40 pl-4 text-slate-300">
+                                                                    "Students feel more confident knowing they will receive professional support
+                                                                    throughout the admission and visa process."
+                                                                </p>
+
+                                                                <!-- presence -->
+                                                                <div class="mt-8">
+
+                                                                    <div class="text-[10px] font-bold text-slate-400 uppercase tracking-[0.2em] mb-4">
+                                                                        Our Presence
+                                                                    </div>
+
+                                                                    <div class="flex flex-wrap gap-3">
+
+                                            <span class="chip">
+                                                <span class="material-symbols-outlined text-xs text-blue-400">location_on</span>
+                                                Australia (AU)
+                                            </span>
+
+                                                                        <span class="chip">
+                                                <span class="material-symbols-outlined text-xs text-blue-400">location_on</span>
+                                                Bangladesh (BD)
+                                            </span>
+
+                                                                        <span class="chip">
+                                                <span class="material-symbols-outlined text-xs text-blue-400">location_on</span>
+                                                India (IN)
+                                            </span>
+
+                                                                        <span class="chip">
+                                                <span class="material-symbols-outlined text-xs text-blue-400">location_on</span>
+                                                Sri Lanka (LK)
+                                            </span>
+
+                                                                    </div>
+
+                                                                </div>
+
+                                                            </div>
+
+                        </div>
+
+
+                        <div class="relative backdrop-blur-xl bg-white/5
+                            border border-white/10
+                            p-8 md:p-10
+                            rounded-[2.5rem]
+                            shadow-[0_0_60px_rgba(255,255,255,0.08),0_30px_80px_rgba(0,0,0,0.8)]
+                            overflow-hidden">
+
+                            <!-- glass reflection -->
+                            <div class="absolute inset-0 bg-gradient-to-br
+                                from-white/10 via-transparent to-transparent
+                                opacity-40 pointer-events-none"></div>
+
+                            <h3 class="text-xl font-bold text-[#150C5D] text-white dark:text-white mb-4">
+                                Request Information
+                            </h3>
+
+                            <form class="relative space-y-5">
+
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+
+                                    <div class="space-y-2">
+                                        <label class="text-xs font-bold text-slate-400 uppercase tracking-wider">
+                                            First Name
+                                        </label>
+
+                                        <input
+                                                class="form-input"
+                                                placeholder="John"
+                                                type="text">
+                                    </div>
+
+                                    <div class="space-y-2">
+                                        <label class="text-xs font-bold text-slate-400 uppercase tracking-wider">
+                                            Last Name
+                                        </label>
+
+                                        <input
+                                                class="form-input"
+                                                placeholder="Doe"
+                                                type="text">
+                                    </div>
+
+                                </div>
+
                                 <div class="space-y-2">
-                                    <label class="text-xs font-bold text-slate-500 uppercase tracking-wider">Intended
-                                        Program</label>
-                                    <select
-                                        class="w-full bg-slate-50 dark:bg-slate-900 border-none rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-primary">
+                                    <label class="text-xs font-bold text-slate-400 uppercase tracking-wider">
+                                        Email Address
+                                    </label>
+
+                                    <input
+                                            class="form-input"
+                                            placeholder="john@example.com"
+                                            type="email">
+                                </div>
+
+                                <div class="space-y-2">
+                                    <label class="text-xs font-bold text-slate-400 uppercase tracking-wider">
+                                        Phone Number
+                                    </label>
+
+                                    <input
+                                            class="form-input"
+                                            placeholder="+61 X XXX XXX"
+                                            type="tel">
+                                </div>
+
+                                <div class="space-y-2">
+                                    <label class="text-xs font-bold text-slate-400 uppercase tracking-wider">
+                                        Intended Program
+                                    </label>
+
+                                    <select class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white
+                                        focus:ring-2 focus:ring-primary appearance-none">
                                         <option>Select a program</option>
                                         <option>Undergraduate</option>
                                         <option>Postgraduate</option>
                                         <option>Research</option>
                                     </select>
                                 </div>
+
                                 <div class="space-y-2">
-                                    <label class="text-xs font-bold text-slate-500 uppercase tracking-wider">English
-                                        Test Status</label>
-                                    <select
-                                        class="w-full bg-slate-50 dark:bg-slate-900 border-none rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-primary">
+                                    <label class="text-xs font-bold text-slate-400 uppercase tracking-wider">
+                                        English Test Status
+                                    </label>
+
+                                    <select class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white
+                                        focus:ring-2 focus:ring-primary appearance-none">
                                         <option>Not taken</option>
                                         <option>IELTS</option>
                                         <option>PTE</option>
                                         <option>TOEFL</option>
                                     </select>
                                 </div>
+
                                 <div class="space-y-2">
-                                    <label class="text-xs font-bold text-slate-500 uppercase tracking-wider">Funding
-                                        Plan</label>
-                                    <select
-                                        class="w-full bg-slate-50 dark:bg-slate-900 border-none rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-primary">
+                                    <label class="text-xs font-bold text-slate-400 uppercase tracking-wider">
+                                        Funding Plan
+                                    </label>
+
+                                    <select class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white
+                                        focus:ring-2 focus:ring-primary appearance-none">
                                         <option>Self-funded</option>
                                         <option>Seeking Scholarship</option>
                                         <option>Sponsorship</option>
                                     </select>
                                 </div>
-                                <button
-                                    class="w-full bg-primary hover:bg-primary/90 text-white font-bold py-4 rounded-xl shadow-lg transition-all"
-                                    type="submit">
+
+                                <button class="w-full mt-3
+                                        bg-gradient-to-r from-blue-600 to-indigo-600
+                                        hover:from-blue-500 hover:to-indigo-500
+                                        text-white font-bold py-4 rounded-xl
+                                        shadow-[0_10px_30px_rgba(37,99,235,0.35)]
+                                        transition duration-300">
+
                                     Send Message
+
                                 </button>
+
                             </form>
+
                         </div>
+
                     </div>
+
                 </section>
+
             </main>
             <!-- Footer -->
             <footer class="bg-white dark:bg-background-dark py-12 border-t border-slate-100 dark:border-slate-800">
@@ -1813,6 +2717,26 @@ cursor-pointer">
             </div>
         </div>
     </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        new Swiper(".testimonialSlider", {
+            slidesPerView: 3,
+            spaceBetween: 30,
+            loop: true,
+
+            autoplay: {
+                delay: 2500,
+                disableOnInteraction: false,
+            },
+
+            breakpoints: {
+                320: { slidesPerView: 1 },
+                768: { slidesPerView: 2 },
+                1024: { slidesPerView: 3 }
+            }
+        });
+    </script>
     <script>
         function toggleCourse(button) {
             const accordionItem = button.closest('.course-accordion');
